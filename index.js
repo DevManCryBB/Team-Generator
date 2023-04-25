@@ -1,9 +1,9 @@
-const { default: inquirer } = require("inquirer");
+const inquirer = require("inquirer");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-const fs = require("fs")
-const generateHTML = require("./util/generateHtml")
+const fs = require("fs");
+const generateHTML = require("./util/generateHtml");
 const team = []
 
 
@@ -13,7 +13,7 @@ function promptUser() {
             {
                 type: "input",
                 name: "managerName",
-                message: "Name"
+                message: "As a manager, add your name here"
             },
             {
                 type: "input",
@@ -41,7 +41,7 @@ function generateTeam() {
     inquirer.prompt([
         {
             type: "list",
-            name: "Teams",
+            name: "teamMember",
             message: "Please choose from list below to generate your team",
             choices: ["Engineer", "Intern", "Quit"]
         },
