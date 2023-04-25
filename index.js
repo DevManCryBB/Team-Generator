@@ -13,22 +13,22 @@ function promptUser() {
             {
                 type: "input",
                 name: "managerName",
-                message: "Manager's name"
+                message: "Name"
             },
             {
                 type: "input",
                 name: "managerID",
-                message: "Manager's ID"
+                message: "ID"
             },
             {
                 type: "input",
                 name: "managerEmail",
-                message: "Manager's Email"
+                message: "Email"
             },
             {
                 type: "input",
                 name: "managerOfficeNum",
-                message: "Manager's Office Number"
+                message: "Office Number"
             },
         ]).then(answers => {
             const manager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.managerOfficeNum)
@@ -42,7 +42,7 @@ function generateTeam() {
         {
             type: "list",
             name: "Teams",
-            message: "Please choose from list below",
+            message: "Please choose from list below to generate your team",
             choices: ["Engineer", "Intern", "Quit"]
         },
     ]).then(answers => {
@@ -66,22 +66,22 @@ function createEngineer() {
         {
             type: "input",
             name: "engineerName",
-            message: "Engineer's name"
+            message: "Name"
         },
         {
             type: "input",
             name: "engineerID",
-            message: "Engineer's ID"
+            message: "ID"
         },
         {
             type: "input",
             name: "engineerEmail",
-            message: "Engineer's Email"
+            message: "Email"
         },
         {
             type: "input",
             name: "engineerGitHub",
-            message: "Engineer's GitHub"
+            message: "GitHub"
         },
     ]).then(answers => {
         const engineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answers.engineerGitHub)
@@ -96,22 +96,22 @@ function createIntern() {
         {
             type: "input",
             name: "InternName",
-            message: "Intern's name"
+            message: "Name"
         },
         {
             type: "input",
             name: "InternID",
-            message: "Intern's ID"
+            message: "ID"
         },
         {
             type: "input",
             name: "InternEmail",
-            message: "Intern's Email"
+            message: "Email"
         },
         {
             type: "input",
             name: "internSchool",
-            message: "Intern's School"
+            message: "School"
         },
     ]).then(answers => {
         const intern = new Intern(answers.InternName, answers.InternID, answers.InternEmail, answers.internSchool)
