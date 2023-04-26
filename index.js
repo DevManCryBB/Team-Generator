@@ -38,85 +38,88 @@ function promptUser() {
 }
 
 function generateTeam() {
-    inquirer.prompt([
-        {
-            type: "list",
-            name: "teamMember",
-            message: "Please choose from list below to generate your team",
-            choices: ["Engineer", "Intern", "Quit"]
-        },
-    ]).then(answers => {
-        switch (answers.teamMember) {
-            case "Engineer":
-                createEngineer()
+    inquirer
+        .prompt([
+            {
+                type: "list",
+                name: "teamMember",
+                message: "Please choose from list below to generate your team",
+                choices: ["Engineer", "Intern", "Quit"]
+            },
+        ]).then(answers => {
+            switch (answers.teamMember) {
+                case "Engineer":
+                    createEngineer()
 
-                break;
-            case "Intern":
-                createIntern()
+                    break;
+                case "Intern":
+                    createIntern()
 
-                break;
-            default:
-                fs.writeFileSync("index.html", generateHTML(team), "utf-8")
-        }
-    })
+                    break;
+                default:
+                    fs.writeFileSync("index.html", generateHTML(team), "utf-8")
+            }
+        })
 }
 function createEngineer() {
 
-    inquirer.prompt([
-        {
-            type: "input",
-            name: "engineerName",
-            message: "Name"
-        },
-        {
-            type: "input",
-            name: "engineerID",
-            message: "ID"
-        },
-        {
-            type: "input",
-            name: "engineerEmail",
-            message: "Email"
-        },
-        {
-            type: "input",
-            name: "engineerGitHub",
-            message: "GitHub"
-        },
-    ]).then(answers => {
-        const engineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answers.engineerGitHub)
-        team.push(engineer)
-        generateTeam()
-    })
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "engineerName",
+                message: "Name"
+            },
+            {
+                type: "input",
+                name: "engineerID",
+                message: "ID"
+            },
+            {
+                type: "input",
+                name: "engineerEmail",
+                message: "Email"
+            },
+            {
+                type: "input",
+                name: "engineerGitHub",
+                message: "GitHub"
+            },
+        ]).then(answers => {
+            const engineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answers.engineerGitHub)
+            team.push(engineer)
+            generateTeam()
+        })
 }
 
 function createIntern() {
 
-    inquirer.prompt([
-        {
-            type: "input",
-            name: "InternName",
-            message: "Name"
-        },
-        {
-            type: "input",
-            name: "InternID",
-            message: "ID"
-        },
-        {
-            type: "input",
-            name: "InternEmail",
-            message: "Email"
-        },
-        {
-            type: "input",
-            name: "internSchool",
-            message: "School"
-        },
-    ]).then(answers => {
-        const intern = new Intern(answers.InternName, answers.InternID, answers.InternEmail, answers.internSchool)
-        team.push(intern)
-        generateTeam()
-    })
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "InternName",
+                message: "Name"
+            },
+            {
+                type: "input",
+                name: "InternID",
+                message: "ID"
+            },
+            {
+                type: "input",
+                name: "InternEmail",
+                message: "Email"
+            },
+            {
+                type: "input",
+                name: "internSchool",
+                message: "School"
+            },
+        ]).then(answers => {
+            const intern = new Intern(answers.InternName, answers.InternID, answers.InternEmail, answers.internSchool)
+            team.push(intern)
+            generateTeam()
+        })
 }
 promptUser()
